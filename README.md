@@ -1,5 +1,66 @@
 # All-in-One-Academic-Paper-Assistant
 The primary goal of this system is to leverage natural language processing technology to help researchers and scholars manage, retrieve, and compare academic papers more efficiently. Users can upload research papers, and the system will automatically extract the title and abstract, then generate useful summaries and key points. It can also perform semantic searches based on user queries to identify the most relevant results from the uploaded papers, and even compare the content of different papers.
 
+# 🧠 LLM Research Assistant  
+A Natural Language-Driven Paper Assistant System (LangChain + HuggingFace + MySQL + Gradio)
 
+---
+
+## 📌 Project Overview
+
+This system allows users to manage academic paper tasks using **natural language commands**, including:
+
+- Upload PDF papers → Automatically extract title and abstract  
+- Perform semantic search on previously uploaded papers  
+- Search latest papers from arXiv  
+- Compare two papers and generate structured comparison reports
+
+---
+
+## ⚙️ System Architecture
+
+| Module               | Technology                            |
+|----------------------|----------------------------------------|
+| Natural Language Processing | Flan-T5 (via HuggingFace Transformers) |
+| Tool Orchestration   | LangChain Agent                        |
+| Semantic Search      | FAISS + Sentence-Transformers          |
+| Paper Storage        | MySQL (title, abstract, source)        |
+| User Interface       | Gradio                                 |
+
+---
+
+## 🧰 Installation & Execution
+
+### 1️⃣ Install Dependencies
+
+Recommended: Python 3.9+
+
+```bash
+pip install -r requirements.txt
+
+
+###Set Up MySQL Database
+CREATE DATABASE papers_db;
+
+USE papers_db;
+
+CREATE TABLE papers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title TEXT NOT NULL,
+    abstract TEXT,
+    source VARCHAR(50), -- 'upload' or 'web_search'
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+##⚠️ Make sure your main.py database config matches your settings:
+host = "localhost"
+user = "root"
+password = "your_password"
+database = "papers_db"
+
+
+###Run the Program
+python main.py
+http://localhost:7861
 
