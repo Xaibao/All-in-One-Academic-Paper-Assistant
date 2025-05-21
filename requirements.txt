@@ -1,0 +1,11 @@
+langchain
+langchain-community
+langchain-huggingface
+mysql-connector-python
+pymupdf
+sentence-transformers
+faiss-cpu
+transformers
+accelerate
+gradio
+arxiv

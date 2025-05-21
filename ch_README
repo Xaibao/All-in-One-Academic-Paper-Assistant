@@ -1,0 +1,61 @@
+# 🧠 LLM Research Assistant
+自然語言驅動的論文助理系統（LangChain + HuggingFace + MySQL + Gradio）
+
+---
+
+## 📌 專案簡介
+
+本系統讓使用者能用「自然語言指令」進行學術論文處理，包括：
+
+- 上傳 PDF 論文 → 自動擷取標題與摘要
+- 語意搜尋上傳過的論文
+- 查詢 arXiv 上最新相關論文
+- 自動比對兩篇論文 → 產生結構化報告
+
+---
+
+## ⚙️ 系統架構
+
+| 模組 | 技術 |
+|------|------|
+| 自然語言處理 | Flan-T5（HuggingFace） |
+| 工具管理 | LangChain Agent |
+| 向量儲存 | FAISS + Sentence-Transformers |
+| 論文儲存 | MySQL（title, abstract, source） |
+| 前端介面 | Gradio |
+
+---
+
+## 🧰 安裝與執行
+
+### 1️⃣ 安裝套件
+
+建議使用 Python 3.9+
+
+```bash
+pip install -r requirements.txt
+
+##################################MYsql
+#打開你的MYSQL
+CREATE DATABASE papers_db;
+
+USE papers_db;
+
+CREATE TABLE papers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title TEXT NOT NULL,
+    abstract TEXT,
+    source VARCHAR(50), -- 'upload' 或 'web_search'
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+##⚠️ 請確認你在 main.py 中的連線資訊正確：
+host="localhost",
+user="root",
+password="你的密碼",
+database="papers_db"
+
+##🖥️ 執行程式
+python main.py
+
+http://localhost:7861
