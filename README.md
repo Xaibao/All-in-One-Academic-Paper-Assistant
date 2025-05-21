@@ -1,2 +1,5 @@
 # All-in-One-Academic-Paper-Assistant
-這個系統的主要目標是透過自然語言處理技術，幫助研究人員和學者更高效地管理、檢索和比較學術論文。使用者能夠上傳研究論文，系統會自動提取論文的標題、摘要並生成有用的摘要和關鍵點。它還可以根據使用者的查詢請求，基於語義搜索從上傳的論文中找出最相關的結果，甚至可以比較不同論文的內容。
+The primary goal of this system is to leverage natural language processing technology to help researchers and scholars manage, retrieve, and compare academic papers more efficiently. Users can upload research papers, and the system will automatically extract the title and abstract, then generate useful summaries and key points. It can also perform semantic searches based on user queries to identify the most relevant results from the uploaded papers, and even compare the content of different papers.
+
+
+
